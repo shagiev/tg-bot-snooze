@@ -1,0 +1,24 @@
+{
+  "name": "shagiev/tg-bot-snooze",
+  "type": "project",
+  "homepage": "https://github.com/shagiev/tg-bot-snooze",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lenar Shagiev",
+      "email": "lenarshagiev@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "longman/telegram-bot": "*",
+    "symfony/dependency-injection": "^3.4",
+    "symfony/yaml": "*",
+    "symfony/config": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "\\": "src/"
+    }
+  }
+}
