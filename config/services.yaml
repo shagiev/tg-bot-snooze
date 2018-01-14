@@ -1,0 +1,34 @@
+parameters:
+    config_file: 'config/config.ini'
+    config_example_file: 'installer/config.example.ini'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: './src/*'
+
+    TelegramBot\:
+        resource: './module/TelegramBot/src/*'
+
+    App\Core\Application:
+        public: true
+        calls:
+            - [addTransport, ['@TelegramBot\TelegramBotAdapter']]
+
+    App\Core\Config:
+        arguments: ['%config_file%', '%config_example_file%']
+
+    App\Core\ConfigInterface: '@App\Core\Config'
+
+    App\Core\DB:
+        arguments: ["@=service('App\Core\ConfigInterface').getDSN()"]
+
+    App\Core\DBInterface: '@App\Core\DB'
+
+    App\Transport\Telegram:
+        calls:
+            - [setPDO, ["@=service('App\Core\DBInterface').getPDO()"]]

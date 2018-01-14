@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="App">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="TEST_DB_DSN"
+             value="mysql:dbname=tg_bot_snooze_test;host=localhost" />
+        <env name="TEST_DB_USER"
+             value="tg_bot_snooze_test" />
+        <env name="TEST_DB_PASS"
+             value="tg_bot_snooze_test" />
+    </php>
+    <logging>
+        <log type="coverage-html" target="tests/report/coverage" />
+        <log type="testdox-text" target="tests/report/testdox.txt"/>
+    </logging>
+</phpunit>

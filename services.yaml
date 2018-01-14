@@ -1,4 +1,0 @@
-services:
-    config:
-        class: \Core\Config
-        arguments: ['../../config.ini', '../../config.example.ini']

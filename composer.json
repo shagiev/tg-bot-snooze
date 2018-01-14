@@ -10,15 +10,25 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.0",
     "longman/telegram-bot": "*",
     "symfony/dependency-injection": "^3.4",
     "symfony/yaml": "*",
-    "symfony/config": "*"
+    "symfony/config": "*",
+    "symfony/expression-language": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6"
   },
   "autoload": {
     "psr-4": {
-      "Core\\": "src/core/"
+      "App\\": "src/",
+      "TelegramBot\\": "module/TelegramBot/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
     }
   }
 }

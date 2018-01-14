@@ -2,7 +2,9 @@
 .idea
 
 composer.phar
-/vendor/
+vendor/
 composer.lock
 
-/config.ini
+config.ini
+
+tests/report/
